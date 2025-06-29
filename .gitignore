@@ -1,1 +1,69 @@
-node_modules
+# ----------------
+# Python
+# ----------------
+__pycache__/
+*.py[cod]
+*.egg-info/
+*.egg
+.venv/
+env/
+.env
+*.log
+
+# Flask + Transformers
+instance/
+*.db
+
+# ----------------
+# Node / React
+# ----------------
+node_modules/
+dist/
+build/
+.vite/
+coverage/
+npm-debug.log
+yarn-error.log
+*.tsbuildinfo
+
+# ----------------
+# Java / Spring Boot
+# ----------------
+target/
+*.class
+*.jar
+*.war
+*.iml
+*.log
+*.swp
+
+# Maven Wrapper
+.mvn/
+mvnw
+mvnw.cmd
+
+# ----------------
+# VS Code / JetBrains
+# ----------------
+.vscode/
+.idea/
+
+# ----------------
+# System / OS
+# ----------------
+.DS_Store
+Thumbs.db
+desktop.ini
+*.bak
+*.tmp
+
+# ----------------
+# Git Backup Files
+# ----------------
+*.orig
+
+# ----------------
+# Exclude .env or .venv inside any folder
+# ----------------
+**/.env
+**/.venv/

@@ -39,16 +39,6 @@ It is designed to be simple, fast, and accurate — combining modern front-end a
 
 ---
 
-## 📁 Project Structure
-
-My-NLP-App/
-├── frontend/ # React frontend code
-├── backend/ # Spring Boot Java backend
-├── nlp-services/ # Python Flask NLP microservices
-│ └── app.py # Handles summarization & translation
-├── README.md # Project documentation
-└── .gitignore
-
 ---
 
 ## ⚙️ Setup Instructions

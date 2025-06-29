@@ -1,0 +1,78 @@
+/* frontend/src/styles/Profile.css */
+
+.profile-container {
+  max-width: 350px;
+  margin: 40px auto;
+  padding: 30px;
+  background-color: #b9fffb;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+  text-align: center;
+}
+
+.profile-container h2 {
+  margin-bottom: 20px;
+  font-size: 26px;
+  color: #333;
+}
+
+.profile-info {
+  margin-bottom: 30px;
+  text-align: left;
+  font-size: 16px;
+  color: #000000;
+}
+
+.profile-info p {
+  margin: 10px 0;
+}
+
+.profile-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+.logout-btn,
+.home-btn,
+.history-btn {
+  padding: 10px;
+  font-size: 16px;
+  border: none;
+  border-radius: 6px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.logout-btn {
+  background-color: #ef4444;
+  color: white;
+  align-self:self-end;
+}
+
+
+
+.home-btn {
+
+  color: white;
+}
+
+.home-btn:hover {
+  background-color: #4338ca;
+}
+
+.history-btn {
+  background-color: #10b981;
+  color: white;
+}
+
+.history-btn:hover {
+  background-color: #059669;
+}
+.logout-btn:hover {
+  background-color: whitesmoke;
+}
+

@@ -1,0 +1,68 @@
+/* frontend/src/styles/LogoutButton.css */
+
+.logout-btn {
+  --primary-color: #111;
+  --hovered-color: #e53935;
+
+  background: none;
+  border: none;
+  padding: 0;
+  margin: 0;
+  cursor: pointer;
+
+  display: flex;
+  align-items: center;
+  font-weight: 600;
+  font-size: 20px;
+  gap: 0.5rem;
+  position: relative;
+}
+
+.logout-btn p {
+  margin: 0;
+  position: relative;
+  font-size: 20px;
+  color: var(--primary-color);
+}
+
+.logout-btn::after {
+  position: absolute;
+  content: "";
+  width: 0;
+  left: 0;
+  bottom: -7px;
+  background: var(--hovered-color);
+  height: 2px;
+  transition: 0.3s ease-out;
+}
+
+.logout-btn p::before {
+  content: "Logout";
+  position: absolute;
+  inset: 0;
+  width: 0%;
+  color: var(--hovered-color);
+  overflow: hidden;
+  transition: 0.3s ease-out;
+}
+
+.logout-btn:hover::after {
+  width: 100%;
+}
+
+.logout-btn:hover p::before {
+  width: 100%;
+}
+
+.logout-btn svg.logout-icon {
+  color: var(--primary-color);
+  transition: transform 0.2s ease, color 0.2s ease;
+  width: 18px;
+  position: relative;
+  top: 1px;
+}
+
+.logout-btn:hover svg.logout-icon {
+  transform: translateX(5px);
+  color: var(--hovered-color);
+}

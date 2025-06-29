@@ -1,0 +1,157 @@
+
+
+// frontend/src/utils/downloadPDF.js
+
+import jsPDF from 'jspdf';
+import languageList from './languageList';
+
+// Import all fonts
+import './fonts/NotoSans-Regular';
+import './fonts/NotoSansDevanagari-Regular';
+import './fonts/NotoSansKannada-Regular';
+import './fonts/NotoSansTelugu-Regular';
+import './fonts/NotoSansTamil-Regular';
+import './fonts/NotoSansMalayalam-Regular';
+import './fonts/NotoSansGujarati-Regular';
+import './fonts/NotoSansGurmukhi-Regular';
+import './fonts/NotoSansBengali-Regular';
+import './fonts/NotoSansArabic-Regular';
+import './fonts/NotoSansSC-Regular';
+import './fonts/NotoSansJP-Regular';
+
+const fontMap = {
+  hi: 'NotoSansDevanagari-Regular',
+  mr: 'NotoSansDevanagari-Regular',
+  kn: 'NotoSansKannada-Regular',  // Ensure Kannada font is used correctly
+  te: 'NotoSansTelugu-Regular',
+  ta: 'NotoSansTamil-Regular',
+  ml: 'NotoSansMalayalam-Regular',
+  gu: 'NotoSansGujarati-Regular',
+  pa: 'NotoSansGurmukhi-Regular',
+  bn: 'NotoSansBengali-Regular',
+  ur: 'NotoSansArabic-Regular',
+  zh: 'NotoSansSC-Regular',
+  ja: 'NotoSansJP-Regular',
+  en: 'NotoSans-Regular',
+  fr: 'NotoSans-Regular',
+  de: 'NotoSans-Regular',
+  es: 'NotoSans-Regular',
+  ru: 'NotoSans-Regular',
+  default: 'NotoSans-Regular',
+};
+
+const formatFilenameTimestamp = () => {
+  const now = new Date();
+  return now.toISOString().replace(/[-:.]/g, '_');
+};
+
+const getLanguageLabel = (code) => {
+  const found = languageList.find((lang) => lang.code === code);
+  return found ? found.label : code;
+};
+
+const getFontForLanguage = (langCode) => {
+  return fontMap[langCode] || fontMap.default;
+};
+
+export const downloadAsPDF = (
+  inputText,
+  outputText,
+  label = 'output',
+  options = {}
+) => {
+  const doc = new jsPDF();
+  const pageHeight = doc.internal.pageSize.height;
+  const lineHeight = 7;
+  let y = 10;
+
+  const now = new Date();
+  const formattedDate = now.toLocaleString();
+
+  const inputFont = getFontForLanguage(options.inputLanguage);
+  const outputFont = getFontForLanguage(options.outputLanguage);
+
+  // ===== HEADER TITLE =====
+  doc.setFont(inputFont, 'normal');
+  doc.setFontSize(16);
+  doc.text(label.toUpperCase(), 105, y, { align: 'center' });
+  y += 10;
+
+  doc.setFontSize(13);
+
+  // ===== METADATA LINE =====
+  if (label === 'translation') {
+    const fromLang = getLanguageLabel(options.inputLanguage);
+    const toLang = getLanguageLabel(options.outputLanguage);
+    doc.text(`Source : ${fromLang}`, 10, y);
+    doc.text(`Translated To: ${toLang}`, 105, y, { align: 'center' });
+    doc.text(formattedDate, 200, y, { align: 'right' });
+  } else if (label === 'summary') {
+    doc.text(`Type: ${options.summaryType || 'N/A'}`, 10, y);
+    doc.text(`Length: ${options.summaryLength || 'N/A'}`, 105, y, { align: 'center' });
+    doc.text(formattedDate, 200, y, { align: 'right' });
+  }
+  y += 5;
+
+  doc.setLineWidth(0.5);
+  doc.line(10, y, 200, y);
+  y += 7;
+
+  // ===== INPUT SECTION =====
+  doc.setFontSize(12);
+  doc.setFont(inputFont, 'bold');
+  doc.text('Input:', 10, y);
+  y += 7;
+
+  doc.setFont(inputFont, 'normal');
+  const splitInput = doc.splitTextToSize(inputText || 'N/A', 180);
+  for (const line of splitInput) {
+    if (y > pageHeight - 30) {
+      addFooter(doc, options.username);
+      doc.addPage();
+      doc.setFont(inputFont, 'normal');
+      y = 10;
+    }
+    doc.text(line, 10, y);
+    y += lineHeight;
+  }
+
+  y += 5;
+  doc.setFont(outputFont, 'bold');
+  doc.text('Output:', 10, y);
+  y += 7;
+
+  doc.setFont(outputFont, 'normal');
+  const splitOutput = doc.splitTextToSize(outputText || 'N/A', 180);
+  for (const line of splitOutput) {
+    if (y > pageHeight - 30) {
+      addFooter(doc, options.username);
+      doc.addPage();
+      doc.setFont(outputFont, 'normal');
+      y = 10;
+    }
+    doc.text(line, 10, y);
+    y += lineHeight;
+  }
+
+  addFooter(doc, options.username);
+  doc.save(`${label.toUpperCase()}_${formatFilenameTimestamp()}.pdf`);
+};
+
+const addFooter = (doc, username = 'User') => {
+  const currentPage = doc.internal.getCurrentPageInfo().pageNumber;
+  const pageHeight = doc.internal.pageSize.height;
+  const footerY = pageHeight - 10;
+
+  doc.setLineWidth(0.5);
+  doc.line(10, footerY - 5, 200, footerY - 5);
+
+  doc.setFontSize(12);
+  doc.setFont('NotoSans-Regular', 'italic');
+  doc.text(`Page ${currentPage}`, 105, footerY, { align: 'center' });
+  doc.text(`created by`, 165, footerY, { align: 'right' });
+
+  doc.setFontSize(14);
+  doc.setFont('NotoSans-Regular', 'bold');
+  doc.text(` ${username}`, 165, footerY, { align: 'left' });
+};

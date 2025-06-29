@@ -1,0 +1,13 @@
+====================
+pre 1
+summarizer_abstractive = pipeline("summarization", model="csebuetnlp/mT5_multilingual_XLSum")
+summarizer_extractive = pipeline("summarization", model="sshleifer/distilbart-cnn-12-6")
+============================
+pre 2
+# Load pre-trained models
+summarizer_abstractive = pipeline("summarization", model="knkarthick/MEETING_SUMMARY")
+summarizer_extractive = pipeline("summarization", model="sshleifer/distilbart-cnn-12-6")
+=================
+prep - ok ,ok 
+summarizer_abstractive = pipeline("summarization", model="t5-large")
+summarizer_extractive = pipeline("summarization", model="sshleifer/distilbart-cnn-12-6")

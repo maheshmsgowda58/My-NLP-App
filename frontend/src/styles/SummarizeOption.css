@@ -1,0 +1,17 @@
+.summarize-options {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  margin-bottom: 1.5rem;
+}
+
+.option-group {
+  display: flex;
+  flex-direction: column;
+  margin-right: 1.5rem;
+}
+
+.option-group label {
+  margin-top: 5px;
+  font-size: 0.95rem;
+}

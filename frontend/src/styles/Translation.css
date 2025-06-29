@@ -1,0 +1,141 @@
+.translation-container {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  background-color: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  box-sizing: border-box;
+}
+
+@media (min-width: 640px) {
+  .translation-container {
+    padding: 1rem;
+  }
+}
+
+@media (min-width: 768px) {
+  .translation-container {
+    padding: 2rem;
+  }
+}
+
+.translation-container h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  text-align: center;
+  color: #333;
+}
+
+.translate-input {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: center;
+  gap: 10rem;
+  padding: 1rem;
+}
+
+.lang-selectors {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem;
+}
+
+.lang-selectors div {
+  flex: 1;
+  min-width: 220px;
+}
+
+.lang-selectors label {
+  display: inline-block;
+  margin-right: 1rem;
+  font-size: 0.95rem;
+  color: #444444;
+  cursor: pointer;
+}
+
+.actions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+.actions button {
+  background-color: #4f46e5;
+  color: #fff;
+  border: none;
+  padding: 10px 16px;
+  font-weight: bold;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-left: 0.5rem;
+  transition: background-color 0.2s ease-in-out;
+}
+
+.actions button:hover {
+  background-color: #4338ca;
+}
+
+.actions button:disabled {
+  background-color: #b0b0b0;
+  cursor: not-allowed;
+}
+
+.actions > div {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.toggle-with-label {
+  display: flex;
+  align-items: center;
+  gap: 25px;
+}
+
+.toggle-label-text {
+  font-size: 1.2rem;
+  color: #020202;
+  margin-left: 10px;
+}
+
+/* Voice Controls */
+.voice-controls {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1rem;
+  margin-top: 1rem;
+}
+
+.voice-controls button {
+  padding: 8px 12px;
+  font-size: 0.95rem;
+  border-radius: 5px;
+  border: none;
+  background-color: #2563eb;
+  color: white;
+  cursor: pointer;
+}
+
+.voice-controls button:hover {
+  background-color: #1e40af;
+}
+
+.voice-controls label {
+  font-size: 0.9rem;
+  color: #444;
+}
+
+.voice-controls input[type="range"] {
+  vertical-align: middle;
+  margin-left: 0.5rem;
+}

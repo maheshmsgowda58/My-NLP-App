@@ -1,0 +1,15 @@
+com\example\nlp\config\SecurityConfig.class
+com\example\nlp\controller\AuthController.class
+com\example\nlp\controller\TranslationController.class
+com\example\nlp\MyNlpAppApplication.class
+com\example\nlp\model\UserHistory.class
+com\example\nlp\service\AuthService.class
+com\example\nlp\controller\HistoryController.class
+com\example\nlp\repository\UserRepository.class
+com\example\nlp\controller\SummarizationController.class
+com\example\nlp\model\User.class
+com\example\nlp\service\UserService.class
+com\example\nlp\repository\HistoryRepository.class
+com\example\nlp\service\SummarizationService.class
+com\example\nlp\config\AppConfig.class
+com\example\nlp\service\TranslationService.class

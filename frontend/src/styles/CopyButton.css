@@ -1,0 +1,64 @@
+/* frontend/src/styles/CopyButton.css */
+
+.copy-button {
+  background-color: #020202;
+  width: 150px;
+  height: 50px;
+  border: none;
+  border-radius: 10px;
+  font-weight: 600;
+  cursor: pointer;
+  overflow: hidden;
+  position: relative;
+  transition-duration: 700ms;
+}
+
+.copy-button span:first-child {
+  color: #f4f4f4;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  white-space: nowrap;
+  transition: all 0.5s ease;
+  opacity: 1;
+}
+
+.copy-button span:last-child {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  color: #b5ccf3;
+  opacity: 0;
+  transform: translate(-50%, 100%);
+  white-space: nowrap;
+  height: 14px;
+  line-height: 13px;
+  transition: all 0.5s ease;
+}
+
+.copy-button:focus,
+.copy-button:active {
+  background-color: #272a27;
+  width: 150px;
+  height: 50px;
+}
+
+.copy-button:focus span:first-child,
+.copy-button:active span:first-child {
+  color: #b5ccf3;
+  transform: translate(-50%, -150%);
+  opacity: 0;
+}
+
+.copy-button:focus span:last-child,
+.copy-button:active span:last-child {
+  transform: translate(-50%, -50%);
+  opacity: 1;
+}
+
+.copy-button:disabled {
+  background-color: #e0e0e0;
+  color: #999;
+  cursor: not-allowed;
+}

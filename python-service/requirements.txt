@@ -1,0 +1,16 @@
+flask
+flask-cors
+pymongo
+transformers>=4.35.0
+torch
+sentencepiece
+scikit-learn
+nltk
+sumy
+googletrans==4.0.0-rc1
+langcodes
+spacy
+bert-extractive-summarizer
+reportlab
+huggingface_hub
+numpy==1.24.3

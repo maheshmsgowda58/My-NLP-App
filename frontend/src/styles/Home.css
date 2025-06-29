@@ -1,0 +1,196 @@
+/* Container for the home page */
+.home-container {
+  text-align: center;
+  padding: 20px;
+  max-width: 1200px;
+  margin: auto;
+}
+
+/* Heading styles */
+.home-container h1 {
+  font-size: 2.5rem;
+  margin-bottom: 10px;
+}
+
+.home-container p {
+  font-size: 1.2rem;
+  margin-bottom: 20px;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+  font-size: 1.1rem;
+  margin-bottom: 30px;
+}
+
+ul li {
+  margin-bottom: 10px;
+}
+
+/* Buttons section */
+.home-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  flex-wrap: wrap;
+  margin-top: 20px;
+}
+
+/* Button + image container */
+.home-button-container {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 400px;
+}
+
+/* Image style */
+.home-button-image {
+  width: 100%;
+  max-width: 350px;
+  height: auto;
+  margin-bottom: 10px;
+  transition: transform 0.3s ease;
+  cursor: pointer;
+}
+
+.home-button-image:hover {
+  transform: scale(1.1);
+}
+
+/* Button styles */
+button {
+  background-color: #3470fa;
+  color: white;
+  font-size: 16px;
+  padding: 12px 25px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.3s;
+}
+
+button:hover {
+  background-color: #313ed7;
+  transform: translateY(-3px);
+}
+
+button:active {
+  transform: translateY(1px);
+}
+
+button:focus {
+  outline: none;
+}
+
+/* Benefit section */
+.benefit-section {
+  margin-top: 40px;
+  text-align: left;
+  padding: 30px;
+  background-color: rgba(255, 255, 255, 0.7);
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+  max-width: 1000px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.benefit-section h2 {
+  color: #333;
+  font-size: 1.8rem;
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
+
+.benefit-section ul {
+  list-style-type: none;
+  padding-left: 0;
+}
+
+.benefit-section li {
+  padding-left: 1.5rem;
+  position: relative;
+  margin-bottom: 10px;
+  line-height: 1.6;
+}
+
+.benefit-section li::before {
+  content: "✔️";
+  position: absolute;
+  left: 0;
+  color: green;
+}
+
+/* Responsive adjustments */
+@media (max-width: 1024px) {
+  .home-container h1 {
+    font-size: 2rem;
+  }
+
+  .home-container p {
+    font-size: 1rem;
+  }
+
+  .benefit-section {
+    padding: 20px;
+  }
+}
+
+@media (max-width: 768px) {
+  .home-buttons {
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+  }
+
+  .home-button-container {
+    margin: 0 auto 20px auto;
+  }
+
+  .home-button-image {
+    max-width: 90%;
+  }
+
+  button {
+    font-size: 14px;
+    padding: 10px 20px;
+  }
+
+  .benefit-section {
+    padding: 15px;
+  }
+
+  .benefit-section h2 {
+    font-size: 1.4rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .home-container h1 {
+    font-size: 1.8rem;
+  }
+
+  .home-container p {
+    font-size: 0.95rem;
+  }
+
+  .benefit-section h2 {
+    font-size: 1.2rem;
+  }
+
+  ul {
+    font-size: 1rem;
+  }
+}
+
+.home-banner {
+  margin: 40px auto;
+  padding: 20px;
+  max-width: 800px;
+  background-color: rgba(255, 255, 255, 0.7);
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+}

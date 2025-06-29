@@ -80,9 +80,21 @@ My-NLP-App/
 
 ---
 
+
 ## 📸 Screenshots
 
-> _To be added after UI completion_
+### 🔹 Homepage
+![Homepage](assets/homepage.png)
+
+### 🔹 Translation Interface
+![Translation UI](assets/translation-ui.png)
+
+### 🔹 Summarization Interface
+![Summarization UI](assets/summarization-ui.png)
+
+### 🔹 History Page
+![History UI](assets/history-ui.png)
+
 
 ---
 
